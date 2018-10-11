@@ -1,11 +1,17 @@
+import { createStore } from 'redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import PostList from './components/PostList.jsx';
+import { createPost } from './actions';
+import appReducer from './reducers';
+import ConnectedPostList from './containers/ConnectedPostList.jsx';
 
-const posts = [
-   { user: 'dan', text: 'hello world!' },
-   { user: 'des', text: 'hi!' }
-];
+let store = createStore(appReducer);
 
-ReactDOM.render(<PostList posts={posts} />, document.getElementById('root'));
+store.dispatch(createPost('dan', 'hello world'));
+setTimeout(() => store.dispatch(createPost('des', 'hi!')), 1000);
+
+ReactDOM.render(
+   <ConnectedPostList store={store} />,
+   document.getElementById('root')
+);

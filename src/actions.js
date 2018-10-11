@@ -3,16 +3,16 @@ import { CREATE_POST, EDIT_POST, SET_FILTER } from './actionTypes';
 export const createPost = (user, text) => ({
    type: CREATE_POST,
    user,
-   text,
+   text
 });
 
 export const editPost = (id, text) => ({
    type: EDIT_POST,
    id,
-   text,
+   text
 });
 
 export const setFilter = filter => ({
    type: SET_FILTER,
-   filter,
+   filter
 });
