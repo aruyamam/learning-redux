@@ -1,15 +1,29 @@
+import { createStore } from 'redux';
+
 import { createPost, editPost, setFilter } from './actions';
 import appReducer from './reducers';
 
-let state = appReducer(undefined, { type: 'INIT_ACTION' });
+const store = createStore(appReducer);
+const unsubscribe = store.subscribe(() => {
+   console.log('state changed:', store.getState());
+});
+const root = document.getElementById('root');
 
-console.log('initial state:', state);
+const render = () => {
+   root.innerHTML = '';
+   const { posts } = store.getState();
+   posts.forEach((post, index) => {
+      const item = document.createElement('li');
+      item.addEventListener('click', () => {
+         store.dispatch(editPost(index, `${post.text}!`));
+      });
+      const text = document.createTextNode(`${post.user} - ${post.text}`);
+      item.appendChild(text);
+      root.appendChild(item);
+   });
+};
 
-state = appReducer(state, createPost('dan', 'test'));
-console.log('state after createPost:', state);
+const stopRender = store.subscribe(render);
 
-state = appReducer(state, editPost(0, 'edited post'));
-console.log('state after editPost:', state);
-
-state = appReducer(state, setFilter('none'));
-console.log('state after setFilter:', state);
+store.dispatch(createPost('dan', 'hello world'));
+store.dispatch(createPost('johann', 'second post'));
