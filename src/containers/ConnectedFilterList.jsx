@@ -15,9 +15,7 @@ const mapStateToProps = (state) => {
    return { categories };
 };
 
-const mapDispatchToProps = (dispatch) => {
-   bindActionCreators({ setFilter, clearFilter }, dispatch);
-};
+const mapDispatchToProps = dispatch => bindActionCreators({ setFilter, clearFilter }, dispatch);
 
 const ConnectedFilterList = connect(
    mapStateToProps,

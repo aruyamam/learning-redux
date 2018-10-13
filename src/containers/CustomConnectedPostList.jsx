@@ -9,9 +9,7 @@ export default class ConnectedPostList extends React.Component {
 
    componentDidMount() {
       const { store } = this.props;
-      this.unsubscribe = store.subscribe(() =>
-         this.setState({ ...store.getState() })
-      );
+      this.unsubscribe = store.subscribe(() => this.setState({ ...store.getState() }));
    }
 
    componentWillUnmount() {
