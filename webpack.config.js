@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -6,6 +7,11 @@ module.exports = {
       path: path.resolve('dist'),
       filename: 'main.js',
    },
+   plugins: [
+      new webpack.EnvironmentPlugin({
+         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+      }),
+   ],
    module: {
       rules: [
          {

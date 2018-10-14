@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 
 import ConnectedPostList from '../containers/ConnectedPostList.jsx';
 import ConnectedFilterList from '../containers/ConnectedFilterList.jsx';
+import DevTools from '../containers/DevTools.jsx';
 
 const App = ({ store }) => (
    <Provider store={store}>
@@ -14,6 +15,7 @@ const App = ({ store }) => (
          <div>
             <ConnectedPostList />
          </div>
+         {process.env.NODE_ENV !== 'production' && <DevTools />}
       </div>
    </Provider>
 );
