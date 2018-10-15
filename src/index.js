@@ -5,6 +5,10 @@ import configureStore from './store';
 import { createUser, createPost } from './actions';
 import App from './components/App.jsx';
 
+if (module.hot) {
+   module.hot.accept();
+}
+
 const store = configureStore();
 const initialState = store.getState();
 

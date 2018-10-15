@@ -15,5 +15,14 @@ const enhancer = compose(
 );
 
 export default function configureStore(initialState) {
-   return createStore(appReducer, initialState, enhancer);
+   const store = createStore(appReducer, initialState, enhancer);
+
+   if (module.hot) {
+      module.hot.accept('../reducers/index', () => {
+         const nextRooReducer = require('../reducers/index');
+         store.replaceReducer(nextRooReducer);
+      });
+   }
+
+   return store;
 }
