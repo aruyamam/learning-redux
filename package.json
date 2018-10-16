@@ -8,7 +8,7 @@
     "build:app": "yarn build:webpack && yarn build:assets",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build:assets": "shx cp index.html dist/",
-    "start:dev": "webpack-dev-server --config webpack.config.dev.js"
+    "start:dev": "cross-env NODE_ENV=development node server/"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -31,16 +31,22 @@
     "redux-slider-monitor": "^2.0.0-1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.9",
+    "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
     "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "lowdb": "^1.0.0",
+    "morgan": "^1.9.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.11",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "serve": "^10.0.2",
-    "shx": "^0.3.2"
+    "shx": "^0.3.2",
+    "uuid": "^3.3.2"
   }
 }
