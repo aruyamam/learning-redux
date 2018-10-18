@@ -40,9 +40,9 @@ module.exports = function createRouter(
             if (!fs.existsSync(filePath)) return res.status(404).end();
 
             const folderPath = filePath
-               .split('/')
+               .split('\\')
                .slice(0, -1)
-               .join('/');
+               .join('\\');
             devMiddleware.fileSystem.mkdirpSync(folderPath);
             devMiddleware.fileSystem.writeFileSync(filePath, fs.readFileSync(filePath));
          }

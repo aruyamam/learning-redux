@@ -16,9 +16,9 @@ require('./api')(app);
 const serveFrontend = require('./serveFrontend')(path.join(__dirname, '/..'));
 
 app.use(serveFrontend);
-
 app.use((err, req, res, next) => {
    if (err instanceof APIError) {
+      // console.log(err);
       return res.status(400).send({ error: err.message });
    }
    return next(err);

@@ -14,10 +14,10 @@ const DevTools = createDevTools(
       defaultIsVisible={true}
       defaultPosition="bottom"
    >
-      {/* <LogMonitor theme="tomorrow" /> */}
+      <LogMonitor theme="tomorrow" />
       {/* <Inspector /> */}
       {/* <SlideMonitor keyboardEnabled /> */}
-      <ChartMonitor />
+      {/* <ChartMonitor /> */}
    </DockMonitor>,
 );
 

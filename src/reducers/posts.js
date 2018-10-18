@@ -1,7 +1,13 @@
-import { CREATE_POST, EDIT_POST, DELETE_POST } from '../actionTypes';
+import {
+   CREATE_POST, EDIT_POST, DELETE_POST, FETCH_POSTS_SUCCESS,
+} from '../actionTypes';
 
 export default function psotsReducer(state = [], action) {
    switch (action.type) {
+      case FETCH_POSTS_SUCCESS: {
+         return action.result;
+      }
+
       case CREATE_POST: {
          const { type, post } = action;
          const ts = Date.now();
@@ -10,22 +16,21 @@ export default function psotsReducer(state = [], action) {
             {
                ...post,
                created: ts,
-               updated: ts
-            }
+               updated: ts,
+            },
          ];
       }
 
       case EDIT_POST: {
          const { type, id, post } = action;
          return state.map(
-            (oldPost, index) =>
-               action.id === index
-                  ? {
-                       ...oldPost,
-                       ...post,
-                       updated: Date.now()
-                    }
-                  : oldPost
+            (oldPost, index) => (action.id === index
+               ? {
+                  ...oldPost,
+                  ...post,
+                  updated: Date.now(),
+               }
+               : oldPost),
          );
       }
 
