@@ -28,4 +28,4 @@ const thunkCreator = (action) => {
    };
 };
 
-export { thunkCreator };
+export default thunkCreator;
