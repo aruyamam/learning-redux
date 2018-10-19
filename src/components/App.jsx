@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 
 import ConnectedPostList from '../containers/ConnectedPostList.jsx';
 import ConnectedFilterList from '../containers/ConnectedFilterList.jsx';
+import ConnectedLoading from '../containers/ConnectedLoading.jsx';
 import DevTools from '../containers/DevTools.jsx';
 
 const App = ({ store }) => (
@@ -11,6 +12,9 @@ const App = ({ store }) => (
          <h1>React/Redux blog app</h1>
          <div>
             <ConnectedFilterList />
+         </div>
+         <div>
+            <ConnectedLoading />
          </div>
          <div>
             <ConnectedPostList />
