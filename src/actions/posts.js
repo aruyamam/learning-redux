@@ -25,7 +25,7 @@ const getUsernamesFromPosts = posts => posts.reduce((usernames, post) => {
 export const fetchPostsAndUsers = () => dispatch => fetchPosts()(dispatch)
    .then(getUsernamesFromPosts)
    .then(usernames => fetchUsersByUsernames(usernames)(dispatch))
-   .catch(err => console.error('could not fetch posts and userrs', err.message));
+   .catch(err => console.error('could not fetch posts and users', err.message));
 
 export const createPost = (user, post) => {
    const { title, text, category = 'random' } = post;
