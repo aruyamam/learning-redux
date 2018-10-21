@@ -6,6 +6,7 @@ import ConnectedFilterList from '../containers/ConnectedFilterList.jsx';
 import ConnectedLoading from '../containers/ConnectedLoading.jsx';
 import ConnectedErrorMessage from '../containers/ConnectedErrorMessage.jsx';
 import ConnectedRegistration from '../containers/ConnectedRegistration.jsx';
+import ConnectedCreatePost from '../containers/ConnectedCreatePost.jsx';
 import DevTools from '../containers/DevTools.jsx';
 
 const App = ({ store }) => (
@@ -21,6 +22,10 @@ const App = ({ store }) => (
          <hr />
          <div>
             <ConnectedRegistration />
+         </div>
+         <hr />
+         <div>
+            <ConnectedCreatePost />
          </div>
          <hr />
          <div>
