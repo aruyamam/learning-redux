@@ -7,6 +7,8 @@ import ConnectedLoading from '../containers/ConnectedLoading.jsx';
 import ConnectedErrorMessage from '../containers/ConnectedErrorMessage.jsx';
 import ConnectedRegistration from '../containers/ConnectedRegistration.jsx';
 import ConnectedCreatePost from '../containers/ConnectedCreatePost.jsx';
+import ConnectedLogin from '../containers/ConnectedLogin.jsx';
+
 import DevTools from '../containers/DevTools.jsx';
 
 const App = ({ store }) => (
@@ -22,6 +24,9 @@ const App = ({ store }) => (
          <hr />
          <div>
             <ConnectedRegistration />
+         </div>
+         <div>
+            <ConnectedLogin />
          </div>
          <hr />
          <div>

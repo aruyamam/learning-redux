@@ -5,6 +5,7 @@ import postsReducer from './posts';
 import filterReducer from './filter';
 import loadingReducer from './loading';
 import errorReducer from './error';
+import sessionReducer from './session';
 
 const appReducer = combineReducers({
    users: usersReducer,
@@ -12,6 +13,7 @@ const appReducer = combineReducers({
    filter: filterReducer,
    loading: loadingReducer,
    error: errorReducer,
+   session: sessionReducer,
 });
 
 export default appReducer;

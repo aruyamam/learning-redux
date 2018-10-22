@@ -2,11 +2,13 @@
    "users": [
       {
          "username": "dan",
-         "realname": "Daniel Bugl"
+         "realname": "Daniel Bugl",
+         "password": "022b91bc6f8b267335bb42447c6ac22cc812216c0b768a526e7a5fa39b9aa0ab"
       },
       {
-         "username": "max",
-         "realname": "Max Mustermann"
+         "username": "des",
+         "realname": "Destiny",
+         "password": "a9af69eb94b037af8b892c62d02fd22b85be2db749ef8f78a06ba8727990e917"
       }
    ],
    "posts": [
@@ -21,7 +23,7 @@
       },
       {
          "id": "11b9b72f-342a-49ef-ba19-68b55fbe3e2c",
-         "user": "max",
+         "user": "des",
          "title": "Another test",
          "text": "This is another test blog post.",
          "category": "test",

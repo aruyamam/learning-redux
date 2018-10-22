@@ -16,7 +16,8 @@
          "stroustrup"
       ],
       "no-shadow": "off",
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "implicit-arrow-linebreak": "off"
    },
    "extends": [
       "airbnb-base"
