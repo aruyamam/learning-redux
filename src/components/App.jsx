@@ -1,13 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-
+import ConnectedHeader from '../containers/ConnectedHeader.jsx';
 import ConnectedPostList from '../containers/ConnectedPostList.jsx';
 import ConnectedFilterList from '../containers/ConnectedFilterList.jsx';
 import ConnectedLoading from '../containers/ConnectedLoading.jsx';
 import ConnectedErrorMessage from '../containers/ConnectedErrorMessage.jsx';
-import ConnectedRegistration from '../containers/ConnectedRegistration.jsx';
-import ConnectedCreatePost from '../containers/ConnectedCreatePost.jsx';
-import ConnectedLogin from '../containers/ConnectedLogin.jsx';
 
 import DevTools from '../containers/DevTools.jsx';
 
@@ -22,16 +19,7 @@ const App = ({ store }) => (
             <ConnectedErrorMessage />
          </div>
          <hr />
-         <div>
-            <ConnectedRegistration />
-         </div>
-         <div>
-            <ConnectedLogin />
-         </div>
-         <hr />
-         <div>
-            <ConnectedCreatePost />
-         </div>
+         <ConnectedHeader />
          <hr />
          <div>
             <ConnectedFilterList />
