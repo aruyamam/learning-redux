@@ -23,10 +23,8 @@ export default class CreatePost extends React.Component {
 
    handleSubmit(evt) {
       evt.preventDefault();
-      const {
-         username, title, text, category,
-      } = this.state;
-      this.props.createPost(username, {
+      const { title, text, category } = this.state;
+      this.props.createPost(this.props.token, {
          title,
          text,
          category,

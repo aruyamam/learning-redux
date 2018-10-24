@@ -6,6 +6,7 @@ import { createPost } from '../actions';
 
 const mapStateToProps = (state, props) => ({
    error: state.error && state.error.message,
+   token: state.session && state.session.token,
 });
 
 const mapDispatchToProps = (dispatch, props) => bindActionCreators({ createPost }, dispatch);

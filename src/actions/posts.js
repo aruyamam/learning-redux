@@ -12,41 +12,44 @@ import thunkCreator from './utils';
 
 import { fetchUser, fetchUsersByUsernames } from './users';
 
-export const fetchPosts = () => thunkCreator({
-   types: [FETCH_POSTS_REQUEST, FETCH_POSTS_SUCCESS, FETCH_POSTS_FAILURE],
-   promise: fetch('http://localhost:8080/api/posts').then(response => response.json()),
-});
+export const fetchPosts = () =>
+   thunkCreator({
+      types: [FETCH_POSTS_REQUEST, FETCH_POSTS_SUCCESS, FETCH_POSTS_FAILURE],
+      promise: fetch('http://localhost:8080/api/posts').then(response => response.json()),
+   });
 
-const getUsernamesFromPosts = posts => posts.reduce((usernames, post) => {
-   if (!usernames.includes(post.user)) {
-      return [...usernames, post.user];
-   }
-   return usernames;
-}, []);
+const getUsernamesFromPosts = posts =>
+   posts.reduce((usernames, post) => {
+      if (!usernames.includes(post.user)) {
+         return [...usernames, post.user];
+      }
+      return usernames;
+   }, []);
 
-export const fetchPostsAndUsers = () => dispatch => fetchPosts()(dispatch)
-   .then(getUsernamesFromPosts)
-   .then(usernames => fetchUsersByUsernames(usernames)(dispatch))
-   .catch(err => console.error('could not fetch posts and users', err.message));
+export const fetchPostsAndUsers = () => dispatch =>
+   fetchPosts()(dispatch)
+      .then(getUsernamesFromPosts)
+      .then(usernames => fetchUsersByUsernames(usernames)(dispatch))
+      .catch(err => console.error('could not fetch posts and users', err.message));
 
-const _createPost = (user, post) => thunkCreator({
-   types: [CREATE_POST_REQUEST, CREATE_POST_SUCCESS, CREATE_POST_FAILURE],
-   promise: fetch('http://localhost:8080/api/posts', {
-      method: 'POST',
-      headers: {
-         Accept: 'application/json',
-         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-         ...post,
-         user,
-      }),
-   }).then(response => response.json()),
-});
+const _createPost = (token, post) =>
+   thunkCreator({
+      types: [CREATE_POST_REQUEST, CREATE_POST_SUCCESS, CREATE_POST_FAILURE],
+      promise: fetch('http://localhost:8080/api/posts', {
+         method: 'POST',
+         headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+         },
+         body: JSON.stringify(post),
+      }).then(response => response.json()),
+   });
 
-export const createPost = (user, post) => dispatch => _createPost(user, post)(dispatch)
-   .then(result => fetchUser(result.user)(dispatch))
-   .catch(err => console.log('could not create post:', err.message));
+export const createPost = (toekn, post) => dispatch =>
+   _createPost(toekn, post)(dispatch)
+      .then(result => fetchUser(result.user)(dispatch))
+      .catch(err => console.log('could not create post:', err.message));
 
 export const editPost = (id, post) => ({
    type: EDIT_POST,
