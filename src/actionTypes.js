@@ -24,3 +24,6 @@ export const DELETE_POST = 'DELETE_POST';
 // filter
 export const SET_FILTER = 'SET_FILTER';
 export const CLEAR_FILTER = 'CLEAR_FILTER';
+
+// router
+export const NAVIGATE = 'NAVIGATE';

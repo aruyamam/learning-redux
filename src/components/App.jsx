@@ -5,6 +5,8 @@ import ConnectedPostList from '../containers/ConnectedPostList.jsx';
 import ConnectedFilterList from '../containers/ConnectedFilterList.jsx';
 import ConnectedLoading from '../containers/ConnectedLoading.jsx';
 import ConnectedErrorMessage from '../containers/ConnectedErrorMessage.jsx';
+import ConnectedRouter from '../containers/ConnectedRouter.jsx';
+import ConnectedNavigation from '../containers/ConnectedNavigation.jsx';
 
 import DevTools from '../containers/DevTools.jsx';
 
@@ -18,15 +20,13 @@ const App = ({ store }) => (
          <div>
             <ConnectedErrorMessage />
          </div>
+         <div>
+            <ConnectedNavigation />
+         </div>
          <hr />
          <ConnectedHeader />
          <hr />
-         <div>
-            <ConnectedFilterList />
-         </div>
-         <div>
-            <ConnectedPostList />
-         </div>
+         <ConnectedRouter />
          {process.env.NODE_ENV !== 'production' && <DevTools />}
       </div>
    </Provider>

@@ -6,6 +6,7 @@ import filterReducer from './filter';
 import loadingReducer from './loading';
 import errorReducer from './error';
 import sessionReducer from './session';
+import routeReducer from './route';
 
 const appReducer = combineReducers({
    users: usersReducer,
@@ -14,6 +15,7 @@ const appReducer = combineReducers({
    loading: loadingReducer,
    error: errorReducer,
    session: sessionReducer,
+   route: routeReducer,
 });
 
 export default appReducer;
